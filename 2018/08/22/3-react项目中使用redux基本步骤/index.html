@@ -5,19 +5,19 @@
   
 
   
-  <title>react项目中使用redux基本步骤 | Logic同学的小书屋</title>
+  <title>react项目中使用react-redux基本步骤 | Logic同学的小书屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.引入reduximport redux 2.引入react-reduximport react-redux">
+  <meta name="description" content="1.引入reduxyarn add redux 2.引入react-reduxyarn add react-redux 3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构index.js文件中import { createStore } from &amp;apos;redux&amp;apos;; import reducer from &amp;apos;./re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react项目中使用redux基本步骤">
+<meta property="og:title" content="react项目中使用react-redux基本步骤">
 <meta property="og:url" content="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/index.html">
 <meta property="og:site_name" content="Logic同学的小书屋">
-<meta property="og:description" content="1.引入reduximport redux 2.引入react-reduximport react-redux">
+<meta property="og:description" content="1.引入reduxyarn add redux 2.引入react-reduxyarn add react-redux 3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构index.js文件中import { createStore } from &amp;apos;redux&amp;apos;; import reducer from &amp;apos;./re">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-08-22T09:20:06.251Z">
+<meta property="og:updated_time" content="2018-08-22T10:18:39.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react项目中使用redux基本步骤">
-<meta name="twitter:description" content="1.引入reduximport redux 2.引入react-reduximport react-redux">
+<meta name="twitter:title" content="react项目中使用react-redux基本步骤">
+<meta name="twitter:description" content="1.引入reduxyarn add redux 2.引入react-reduxyarn add react-redux 3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构index.js文件中import { createStore } from &amp;apos;redux&amp;apos;; import reducer from &amp;apos;./re">
   
     <link rel="alternate" href="/atom.xml" title="Logic同学的小书屋" type="application/atom+xml">
   
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      react项目中使用redux基本步骤
+      react项目中使用react-redux基本步骤
     </h1>
   
 
@@ -86,13 +86,77 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-引入redux"><a href="#1-引入redux" class="headerlink" title="1.引入redux"></a>1.引入redux</h2><pre><code>import redux
-</code></pre><h2 id="2-引入react-redux"><a href="#2-引入react-redux" class="headerlink" title="2.引入react-redux"></a>2.引入react-redux</h2><pre><code>import react-redux
+        <h2 id="1-引入redux"><a href="#1-引入redux" class="headerlink" title="1.引入redux"></a>1.引入redux</h2><pre><code>yarn add redux
+</code></pre><h2 id="2-引入react-redux"><a href="#2-引入react-redux" class="headerlink" title="2.引入react-redux"></a>2.引入react-redux</h2><pre><code>yarn add react-redux
+</code></pre><h2 id="3-创建store文件夹，store中创建index-js、reducer-js，完成store基本结构"><a href="#3-创建store文件夹，store中创建index-js、reducer-js，完成store基本结构" class="headerlink" title="3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构"></a>3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构</h2><h4 id="index-js文件中"><a href="#index-js文件中" class="headerlink" title="index.js文件中"></a>index.js文件中</h4><pre><code>import { createStore } from &apos;redux&apos;;
+import reducer from &apos;./reducer&apos;;
+
+const store = createStore(reducer);
+
+export default store;
+</code></pre><h4 id="reducer-js文件中"><a href="#reducer-js文件中" class="headerlink" title="reducer.js文件中"></a>reducer.js文件中</h4><pre><code>const defaultState = {
+    // 此处存储的是初始化的store数据，即原来存在组件state中的数据
+    focused: false    //假设现在有一个focused的数据
+};
+
+export default (state=defaultState, action) =&gt; {
+    if (action.type === &apos;search_focus&apos;) {
+        return {
+            focused: true
+        }
+    }
+    if (action.type === &apos;search_blur&apos;) {
+        return {
+            focused: false
+        }
+    }
+    return state;
+}
+</code></pre><h2 id="4-根组件App-js中引入store和Provider并包裹子组件，则任意子组件都可使用store"><a href="#4-根组件App-js中引入store和Provider并包裹子组件，则任意子组件都可使用store" class="headerlink" title="4.根组件App.js中引入store和Provider并包裹子组件，则任意子组件都可使用store"></a>4.根组件App.js中引入store和Provider并包裹子组件，则任意子组件都可使用store</h2><pre><code>import { Provider } from &apos;react-redux&apos;;
+import store from &apos;./store&apos;
+class App extends Component {
+      render() {
+        return (
+          &lt;Provider store={store}&gt;
+            &lt;内部组件 /&gt;
+          &lt;/Provider&gt;
+        );
+      }
+}
+</code></pre><h2 id="5-在子组件中使用connect连接组件和store"><a href="#5-在子组件中使用connect连接组件和store" class="headerlink" title="5.在子组件中使用connect连接组件和store"></a>5.在子组件中使用connect连接组件和store</h2><pre><code>import { connect } from &apos;react-redux&apos;;
+
+// 原来组件中使用this.state.focused的地方则可替换为this.props.focused
+// 原来组件中调用的方法this.handleInputFocus的地方则可替换为this.props.handleInputFocus
+
+const mapStateTopProps = (state) =&gt; {
+    return {
+        focused: state.focused    // 将store中的focused映射到组件的props中去
+    }
+}
+const mapDispatchToProps = (dispatch) =&gt; {
+    return {
+         handleInputFocus () {
+            // 创建action
+            const action = {
+                type: &apos;search_focus&apos;
+            };
+            // 将action派发给store
+            dispatch(action);
+        },
+        handleInputBlur () {
+            const action = {
+                type: &apos;search_blur&apos;
+            };
+            dispatch(action);
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(子组件);
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjl4xjtyj0004eou14g6g1cpk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjl4ztmxu0004i8u17g3aivmg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,7 +205,7 @@
       <ul>
         
           <li>
-            <a href="/2018/08/22/3-react项目中使用redux基本步骤/">react项目中使用redux基本步骤</a>
+            <a href="/2018/08/22/3-react项目中使用redux基本步骤/">react项目中使用react-redux基本步骤</a>
           </li>
         
           <li>
