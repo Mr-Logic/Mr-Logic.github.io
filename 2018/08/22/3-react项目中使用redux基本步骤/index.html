@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Logic同学的小书屋">
 <meta property="og:description" content="1.引入reduxyarn add redux 2.引入react-reduxyarn add react-redux 3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构index.js文件中import { createStore } from &amp;apos;redux&amp;apos;; import reducer from &amp;apos;./re">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-08-22T10:18:39.323Z">
+<meta property="og:updated_time" content="2018-08-22T11:50:25.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react项目中使用react-redux基本步骤">
 <meta name="twitter:description" content="1.引入reduxyarn add redux 2.引入react-reduxyarn add react-redux 3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构index.js文件中import { createStore } from &amp;apos;redux&amp;apos;; import reducer from &amp;apos;./re">
@@ -152,11 +152,24 @@ const mapDispatchToProps = (dispatch) =&gt; {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(子组件);
+</code></pre><h2 id="6-当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。"><a href="#6-当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。" class="headerlink" title="6.当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。"></a>6.当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。</h2><pre><code>import { combineReducers } from &apos;redux&apos;;
+import headerReducer from &apos;../common/header/store/reducer&apos;;
+
+export default combineReducers({
+    header: headerReducer
+})
+</code></pre><h4 id="需要注意的是组件中的数据多了一层结构"><a href="#需要注意的是组件中的数据多了一层结构" class="headerlink" title="需要注意的是组件中的数据多了一层结构"></a>需要注意的是组件中的数据多了一层结构</h4><pre><code>const mapStateTopProps = (state) =&gt; {
+    return {
+        focused: state.header.focused    // 将store中的focused映射到组件的props中去
+    }
+}
+</code></pre><h2 id="7-由于reducer中不可直接更改state-可使用immutable插件来讲state包装为immutable对象"><a href="#7-由于reducer中不可直接更改state-可使用immutable插件来讲state包装为immutable对象" class="headerlink" title="7.由于reducer中不可直接更改state,可使用immutable插件来讲state包装为immutable对象"></a>7.由于reducer中不可直接更改state,可使用immutable插件来讲state包装为immutable对象</h2><pre><code>yarn add immutable
+yarn add redux-immutable
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjl4ztmxu0004i8u17g3aivmg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjl52uk3s0000i4u17zslunb7" class="article-share-link">Share</a>
       
       
     </footer>
