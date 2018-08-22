@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Logic同学的小书屋">
 <meta property="og:description" content="1.引入reduxyarn add redux 2.引入react-reduxyarn add react-redux 3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构index.js文件中import { createStore } from &amp;apos;redux&amp;apos;; import reducer from &amp;apos;./re">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-08-22T11:50:25.514Z">
+<meta property="og:updated_time" content="2018-08-22T12:01:27.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react项目中使用react-redux基本步骤">
 <meta name="twitter:description" content="1.引入reduxyarn add redux 2.引入react-reduxyarn add react-redux 3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构index.js文件中import { createStore } from &amp;apos;redux&amp;apos;; import reducer from &amp;apos;./re">
@@ -152,7 +152,7 @@ const mapDispatchToProps = (dispatch) =&gt; {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(子组件);
-</code></pre><h2 id="6-当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。"><a href="#6-当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。" class="headerlink" title="6.当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。"></a>6.当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。</h2><pre><code>import { combineReducers } from &apos;redux&apos;;
+</code></pre><h2 id="6-当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。"><a href="#6-当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。" class="headerlink" title="6.当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。"></a>6.当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。</h2><h4 id="每个组件的store文件夹中都可以有入口store文件index-js、处理文件reducer-js、常量文件constants-js、action创建文件actionCreators-js，将其他三个文件导入到index-js文件中再导出，外部需要使用时直接访问index-js文件即可。"><a href="#每个组件的store文件夹中都可以有入口store文件index-js、处理文件reducer-js、常量文件constants-js、action创建文件actionCreators-js，将其他三个文件导入到index-js文件中再导出，外部需要使用时直接访问index-js文件即可。" class="headerlink" title="每个组件的store文件夹中都可以有入口store文件index.js、处理文件reducer.js、常量文件constants.js、action创建文件actionCreators.js，将其他三个文件导入到index.js文件中再导出，外部需要使用时直接访问index.js文件即可。"></a>每个组件的store文件夹中都可以有入口store文件index.js、处理文件reducer.js、常量文件constants.js、action创建文件actionCreators.js，将其他三个文件导入到index.js文件中再导出，外部需要使用时直接访问index.js文件即可。</h4><pre><code>import { combineReducers } from &apos;redux&apos;;
 import headerReducer from &apos;../common/header/store/reducer&apos;;
 
 export default combineReducers({
@@ -165,11 +165,33 @@ export default combineReducers({
 }
 </code></pre><h2 id="7-由于reducer中不可直接更改state-可使用immutable插件来讲state包装为immutable对象"><a href="#7-由于reducer中不可直接更改state-可使用immutable插件来讲state包装为immutable对象" class="headerlink" title="7.由于reducer中不可直接更改state,可使用immutable插件来讲state包装为immutable对象"></a>7.由于reducer中不可直接更改state,可使用immutable插件来讲state包装为immutable对象</h2><pre><code>yarn add immutable
 yarn add redux-immutable
+</code></pre><h4 id="在组件的reducer-js中"><a href="#在组件的reducer-js中" class="headerlink" title="在组件的reducer.js中"></a>在组件的reducer.js中</h4><pre><code>import { fromJS } from &apos;immutable&apos;;
+// 原来的defaultState改为
+const defaultState = fromJS({
+    focused: false
+});
+
+export default (state=defaultState, action) =&gt; {
+    if (action.type === constants.SEARCH_FOCUS) {
+        // immutable对象的set方法，会结合之前的immutable对象的值和设置的值，返回一个全新的对象
+        return state.set(&apos;focused&apos;, true)    // 此时更改state需要使用immutable对象的set方法
+    }
+    if (action.type === constants.SEARCH_BLUR) {
+        return state.set(&apos;focused&apos;, false)
+    }
+    return state;
+}
+</code></pre><h4 id="在组件中获取state也需要immutable方法"><a href="#在组件中获取state也需要immutable方法" class="headerlink" title="在组件中获取state也需要immutable方法"></a>在组件中获取state也需要immutable方法</h4><pre><code>// 由于state是redux-immutable中的combineReducers函数创建的对象，故为immutable对象，需要使用get方法
+const mapStateToProps = (state) =&gt; {
+    return {
+        focused: state.getIn([&apos;header&apos;, &apos;focused&apos;])    // 等价于state.get(&apos;header&apos;).get(&apos;focused)
+    }
+}
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjl52uk3s0000i4u17zslunb7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjl538ia900041su1r9lf20t0" class="article-share-link">Share</a>
       
       
     </footer>
