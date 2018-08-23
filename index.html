@@ -62,6 +62,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-5-create-react-app脚手架创建的项目开发过程知识点总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" class="article-date">
+  <time datetime="2018-08-23T03:37:26.000Z" itemprop="datePublished">2018-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/">create-react-app脚手架创建的项目开发过程知识点总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。"><a href="#1-create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。" class="headerlink" title="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。"></a>1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。</h2><h2 id="2-使用react路由"><a href="#2-使用react路由" class="headerlink" title="2.使用react路由"></a>2.使用react路由</h2><pre><code>yarn add react-router-dom
+</code></pre><h2 id="3-react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件"><a href="#3-react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件" class="headerlink" title="3.react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件"></a>3.react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件</h2><pre><code>yarn add styled-components
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjl6exeo10004b4u1tmd26dm6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-4-在redux中使用redux-thunk中间件来处理异步请求" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" class="article-date">
+  <time datetime="2018-08-23T03:21:14.000Z" itemprop="datePublished">2018-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/">在redux中使用redux-thunk中间件来处理异步请求</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用"><a href="#使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用" class="headerlink" title="使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用"></a>使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用</h2><pre><code>yarn add redux-thunk
+
+import { createStore, compose, applyMiddleware } from &apos;redux&apos;;
+import reducer from &apos;./reducer&apos;;
+import thunk from &apos;redux-thunk&apos;;
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, /* preloadedState, */ composeEnhancers(
+    applyMiddleware(thunk)
+));
+
+export default store; 
+</code></pre><h2 id="然后即可在组件的action中派发请求"><a href="#然后即可在组件的action中派发请求" class="headerlink" title="然后即可在组件的action中派发请求"></a>然后即可在组件的action中派发请求</h2><pre><code>const mapDispatchToProps = (dispatch) =&gt; {
+    return {
+        handleInputFocus () {
+            dispatch(actionCreators.getList());
+        }
+    }
+}
+</code></pre><h2 id="在组件的actionCreators文件中发送异步请求"><a href="#在组件的actionCreators文件中发送异步请求" class="headerlink" title="在组件的actionCreators文件中发送异步请求"></a>在组件的actionCreators文件中发送异步请求</h2><pre><code>export const changeList = (data) =&gt; ({
+    type: &apos;change_list&apos;,
+    data
+})
+
+export const getList = () =&gt; {
+    // 使用redux-thunk后此处即可返回一个函数
+    return (dispatch) =&gt; {
+        axios.get(&apos;/api/headerList.json&apos;).then((res) =&gt; {
+            const data = res.data;
+            dispatch(changeList(data.data))
+        }).catch((err) =&gt; {
+            console.log(err)
+        })
+    }
+}    
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjl6exep80006b4u17f5dnjki" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-3-react项目中使用redux基本步骤" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/22/3-react项目中使用redux基本步骤/" class="article-date">
@@ -189,7 +298,7 @@ const mapStateToProps = (state) =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjl538ia900041su1r9lf20t0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjl6exeot0005b4u1vysk96i7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -244,7 +353,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjl538ia600021su1xyor96mn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjl6exenx0002b4u16hdw4ugn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -289,7 +398,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjl538ia000001su1wloc9tig" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjl6exenq0000b4u17ed655hp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -328,6 +437,14 @@ ERROR Try running: &apos;npm install hexo --save&apos;
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/">create-react-app脚手架创建的项目开发过程知识点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/">在redux中使用redux-thunk中间件来处理异步请求</a>
+          </li>
         
           <li>
             <a href="/2018/08/22/3-react项目中使用redux基本步骤/">react项目中使用react-redux基本步骤</a>

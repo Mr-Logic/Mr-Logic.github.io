@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>create-react-app脚手架创建的项目开发过程知识点总结 | Logic同学的小书屋</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。2.使用react路由yarn add react-router-dom 3.react的css是全局的，为避免相互影响，可以使用styled-component">
+<meta property="og:type" content="article">
+<meta property="og:title" content="create-react-app脚手架创建的项目开发过程知识点总结">
+<meta property="og:url" content="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/index.html">
+<meta property="og:site_name" content="Logic同学的小书屋">
+<meta property="og:description" content="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。2.使用react路由yarn add react-router-dom 3.react的css是全局的，为避免相互影响，可以使用styled-component">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-08-23T10:16:08.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="create-react-app脚手架创建的项目开发过程知识点总结">
+<meta name="twitter:description" content="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。2.使用react路由yarn add react-router-dom 3.react的css是全局的，为避免相互影响，可以使用styled-component">
+  
+    <link rel="alternate" href="/atom.xml" title="Logic同学的小书屋" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Logic同学的小书屋</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-5-create-react-app脚手架创建的项目开发过程知识点总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" class="article-date">
+  <time datetime="2018-08-23T03:37:26.000Z" itemprop="datePublished">2018-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      create-react-app脚手架创建的项目开发过程知识点总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。"><a href="#1-create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。" class="headerlink" title="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。"></a>1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。</h2><h2 id="2-使用react路由"><a href="#2-使用react路由" class="headerlink" title="2.使用react路由"></a>2.使用react路由</h2><pre><code>yarn add react-router-dom
+</code></pre><h2 id="3-react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件"><a href="#3-react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件" class="headerlink" title="3.react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件"></a>3.react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件</h2><pre><code>yarn add styled-components
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjl6exeo10004b4u1tmd26dm6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">在redux中使用redux-thunk中间件来处理异步请求</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/">create-react-app脚手架创建的项目开发过程知识点总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/">在redux中使用redux-thunk中间件来处理异步请求</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/22/3-react项目中使用redux基本步骤/">react项目中使用react-redux基本步骤</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/22/2-hexo搭建博客基本步骤/">hexo搭建博客托管在github上基本步骤</a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/22/1-hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Mr Logic<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
