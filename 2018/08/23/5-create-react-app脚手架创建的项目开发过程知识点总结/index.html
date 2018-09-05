@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Logic同学的小书屋">
 <meta property="og:description" content="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。2.使用react路由yarn add react-router-dom 3.react的css是全局的，为避免相互影响，可以使用styled-component">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-08-23T10:16:08.961Z">
+<meta property="og:updated_time" content="2018-08-29T01:18:01.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="create-react-app脚手架创建的项目开发过程知识点总结">
 <meta name="twitter:description" content="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。2.使用react路由yarn add react-router-dom 3.react的css是全局的，为避免相互影响，可以使用styled-component">
@@ -88,11 +88,14 @@
       
         <h2 id="1-create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。"><a href="#1-create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。" class="headerlink" title="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。"></a>1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。</h2><h2 id="2-使用react路由"><a href="#2-使用react路由" class="headerlink" title="2.使用react路由"></a>2.使用react路由</h2><pre><code>yarn add react-router-dom
 </code></pre><h2 id="3-react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件"><a href="#3-react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件" class="headerlink" title="3.react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件"></a>3.react的css是全局的，为避免相互影响，可以使用styled-components将css样式转换为js样式组件</h2><pre><code>yarn add styled-components
+</code></pre><h2 id="4-react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串"><a href="#4-react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串" class="headerlink" title="4.react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串"></a>4.react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串</h2><pre><code>yarn add moment
+import moment from &apos;moment&apos;;
+const sDateS = moment(sDate)    // sDate为获取的moment时间对象, moment()即可将其转为字符串
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjldlwf230002lku1zu9id0nj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjloqjjc50005fsu1h9phrucs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +140,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
     </div>
   </div>
 
@@ -148,6 +151,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/09/05/7-react中使用echarts/">react中使用echarts</a>
+          </li>
         
           <li>
             <a href="/2018/08/28/6-create-react-app项目中使用less和antd基本配置/">create-react-app项目中使用less和antd基本配置</a>
@@ -163,10 +170,6 @@
         
           <li>
             <a href="/2018/08/22/3-react项目中使用redux基本步骤/">react项目中使用react-redux基本步骤</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/22/2-hexo搭建博客基本步骤/">hexo搭建博客托管在github上基本步骤</a>
           </li>
         
       </ul>
