@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Logic同学的小书屋">
 <meta property="og:description" content="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。2.使用react路由yarn add react-router-dom 3.react的css是全局的，为避免相互影响，可以使用styled-component">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-08-29T01:18:01.104Z">
+<meta property="og:updated_time" content="2018-09-07T08:19:27.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="create-react-app脚手架创建的项目开发过程知识点总结">
 <meta name="twitter:description" content="1.create-react-app创建的项目，发送ajax请求时，若请求路径找不到，脚手架开启的node服务会自动在public文件夹下去寻找。因此，在后端接口完成之前可在此文件夹下创建模拟数据供前端使用，项目上线时将模拟文件删除即可。2.使用react路由yarn add react-router-dom 3.react的css是全局的，为避免相互影响，可以使用styled-component">
@@ -91,11 +91,15 @@
 </code></pre><h2 id="4-react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串"><a href="#4-react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串" class="headerlink" title="4.react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串"></a>4.react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串</h2><pre><code>yarn add moment
 import moment from &apos;moment&apos;;
 const sDateS = moment(sDate)    // sDate为获取的moment时间对象, moment()即可将其转为字符串
+</code></pre><h2 id="5-less中设置宽高需要计算100-和px或rem和差时避免100和px前的数值直接计算得到错误结果"><a href="#5-less中设置宽高需要计算100-和px或rem和差时避免100和px前的数值直接计算得到错误结果" class="headerlink" title="5.less中设置宽高需要计算100%和px或rem和差时避免100和px前的数值直接计算得到错误结果"></a>5.less中设置宽高需要计算100%和px或rem和差时避免100和px前的数值直接计算得到错误结果</h2><pre><code>width: (100% - 1.2rem);    //计算结果为width(98.8%)
+// 需要改为以下计算方式：
+width: (~&apos;100% - 1.2rem&apos;);
+height: (~&apos;100% - 1.2px&apos;);
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjlox1td00008bsu1ujfnim0z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjlrqcndi0000x4u1ufbnlsag" class="article-share-link">Share</a>
       
       
     </footer>

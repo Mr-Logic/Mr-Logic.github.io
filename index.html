@@ -227,7 +227,7 @@ getOptions = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjlox1tc60004bsu1g5d1blri" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjlrqcndx0008x4u1wljrxqbb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +354,7 @@ yarn add less@2.7.3        //less版本大于3.0时会报错，最好是2.7-2.9�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjlox1tc30002bsu1kowyn019" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjlrqcndt0005x4u1bayh4l8r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -391,11 +391,15 @@ yarn add less@2.7.3        //less版本大于3.0时会报错，最好是2.7-2.9�
 </code></pre><h2 id="4-react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串"><a href="#4-react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串" class="headerlink" title="4.react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串"></a>4.react中使用antd框架的DatePicker组件时，获取的是moment时间对象，需要安装moment，然后转为字符串</h2><pre><code>yarn add moment
 import moment from &apos;moment&apos;;
 const sDateS = moment(sDate)    // sDate为获取的moment时间对象, moment()即可将其转为字符串
+</code></pre><h2 id="5-less中设置宽高需要计算100-和px或rem和差时避免100和px前的数值直接计算得到错误结果"><a href="#5-less中设置宽高需要计算100-和px或rem和差时避免100和px前的数值直接计算得到错误结果" class="headerlink" title="5.less中设置宽高需要计算100%和px或rem和差时避免100和px前的数值直接计算得到错误结果"></a>5.less中设置宽高需要计算100%和px或rem和差时避免100和px前的数值直接计算得到错误结果</h2><pre><code>width: (100% - 1.2rem);    //计算结果为width(98.8%)
+// 需要改为以下计算方式：
+width: (~&apos;100% - 1.2rem&apos;);
+height: (~&apos;100% - 1.2px&apos;);
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjlox1td00008bsu1ujfnim0z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjlrqcndi0000x4u1ufbnlsag" class="article-share-link">Share</a>
       
       
     </footer>
@@ -466,7 +470,7 @@ export const getList = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjlox1tc10001bsu1ygj68v0l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjlrqcndu0006x4u19ouf2fxt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -603,7 +607,7 @@ const mapStateToProps = (state) =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjlox1tbx0000bsu1x8xtoq8h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjlrqcndw0007x4u1bphe4i9p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -658,7 +662,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjlox1tcz0007bsu14212lru5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjlrqcndr0004x4u12xxpylx9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -703,7 +707,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjlox1tc40003bsu1u3k4e5t9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjlrqcndo0002x4u11kojk2o9" class="article-share-link">Share</a>
       
       
     </footer>
