@@ -62,6 +62,66 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-8-React中引入本地图片和背景图片" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/07/8-React中引入本地图片和背景图片/" class="article-date">
+  <time datetime="2018-09-07T11:04:37.000Z" itemprop="datePublished">2018-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/07/8-React中引入本地图片和背景图片/">React中引入本地图片和背景图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-非背景图片引入方式"><a href="#1-非背景图片引入方式" class="headerlink" title="1.非背景图片引入方式"></a>1.非背景图片引入方式</h2><h3 id="①-直接在img标签内部src中使用"><a href="#①-直接在img标签内部src中使用" class="headerlink" title="①-直接在img标签内部src中使用"></a>①-直接在img标签内部src中使用</h3><pre><code>&lt;img src={require(&apos;图片路径&apos;)} /&gt;
+</code></pre><h3 id="②-import导入"><a href="#②-import导入" class="headerlink" title="②-import导入"></a>②-import导入</h3><pre><code>import imgSrc from &apos;图片路径&apos;
+&lt;img src={imgSrc} /&gt;
+</code></pre><h2 id="2-图片作为背景引入"><a href="#2-图片作为背景引入" class="headerlink" title="2.图片作为背景引入"></a>2.图片作为背景引入</h2><h3 id="①-render-方法内定义为对象"><a href="#①-render-方法内定义为对象" class="headerlink" title="①-render()方法内定义为对象"></a>①-render()方法内定义为对象</h3><pre><code>const bgGround {
+    display: &apos;inline-block&apos;,
+    height: &apos;40px&apos;,
+    width: &apos;40px&apos;,
+    background: `url(${require(&quot;图片路径&quot;)})`
+}
+
+// 在return中使用
+&lt;span style={bgGround}&gt;xxxxx&lt;/span&gt;
+</code></pre><h3 id="②-import引入"><a href="#②-import引入" class="headerlink" title="②-import引入"></a>②-import引入</h3><pre><code>import imgUrl from &apos;图片路径&apos;
+
+// render()中定义为对象
+const bgGround = {
+    display: &apos;inline-block&apos;,
+    height: &apos;40px&apos;,
+    width: &apos;40px&apos;,
+    backgroundImage: &apos;url(&apos; + imgUrl + &apos;)&apos;
+}
+
+//在return中使用
+&lt;span style={bgGround}&gt;xxxxx&lt;/span&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjlrwlffi0006bcu1k53yrp70" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-7-react中使用echarts" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/05/7-react中使用echarts/" class="article-date">
@@ -227,7 +287,7 @@ getOptions = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjlrqcndx0008x4u1wljrxqbb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjlrwlffv0008bcu1sgr4xpu5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +414,7 @@ yarn add less@2.7.3        //less版本大于3.0时会报错，最好是2.7-2.9�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjlrqcndt0005x4u1bayh4l8r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjlrwlffw0009bcu1dcs39sl5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -399,7 +459,7 @@ height: (~&apos;100% - 1.2px&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjlrqcndi0000x4u1ufbnlsag" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjlrwlfff0004bcu13djvwjqw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -470,7 +530,7 @@ export const getList = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjlrqcndu0006x4u19ouf2fxt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjlrwlffk0007bcu1g1rtqyxj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -607,7 +667,7 @@ const mapStateToProps = (state) =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjlrqcndw0007x4u1bphe4i9p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjlrwlffh0005bcu1ebedv5i4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -662,7 +722,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjlrqcndr0004x4u12xxpylx9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjlrwlff60000bcu1jo6n6edq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -707,7 +767,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjlrqcndo0002x4u11kojk2o9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjlrwlffc0002bcu10k2mwd0f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -748,6 +808,10 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       <ul>
         
           <li>
+            <a href="/2018/09/07/8-React中引入本地图片和背景图片/">React中引入本地图片和背景图片</a>
+          </li>
+        
+          <li>
             <a href="/2018/09/05/7-react中使用echarts/">react中使用echarts</a>
           </li>
         
@@ -761,10 +825,6 @@ ERROR Try running: &apos;npm install hexo --save&apos;
         
           <li>
             <a href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/">在redux中使用redux-thunk中间件来处理异步请求</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/22/3-react项目中使用redux基本步骤/">react项目中使用react-redux基本步骤</a>
           </li>
         
       </ul>

@@ -5,16 +5,19 @@
   
 
   
-  <title>about | Logic同学的小书屋</title>
+  <title>React中引入本地图片和背景图片 | Logic同学的小书屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+  <meta name="description" content="1.非背景图片引入方式①-直接在img标签内部src中使用&amp;lt;img src={require(&amp;apos;图片路径&amp;apos;)} /&amp;gt; ②-import导入import imgSrc from &amp;apos;图片路径&amp;apos; &amp;lt;img src={imgSrc} /&amp;gt; 2.图片作为背景引入①-render()方法内定义为对象const bgGround {     dis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React中引入本地图片和背景图片">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/index.html">
 <meta property="og:site_name" content="Logic同学的小书屋">
+<meta property="og:description" content="1.非背景图片引入方式①-直接在img标签内部src中使用&amp;lt;img src={require(&amp;apos;图片路径&amp;apos;)} /&amp;gt; ②-import导入import imgSrc from &amp;apos;图片路径&amp;apos; &amp;lt;img src={imgSrc} /&amp;gt; 2.图片作为背景引入①-render()方法内定义为对象const bgGround {     dis">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-08-22T07:51:21.330Z">
+<meta property="og:updated_time" content="2018-09-07T11:13:21.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="React中引入本地图片和背景图片">
+<meta name="twitter:description" content="1.非背景图片引入方式①-直接在img标签内部src中使用&amp;lt;img src={require(&amp;apos;图片路径&amp;apos;)} /&amp;gt; ②-import导入import imgSrc from &amp;apos;图片路径&amp;apos; &amp;lt;img src={imgSrc} /&amp;gt; 2.图片作为背景引入①-render()方法内定义为对象const bgGround {     dis">
   
     <link rel="alternate" href="/atom.xml" title="Logic同学的小书屋" type="application/atom+xml">
   
@@ -61,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-8-React中引入本地图片和背景图片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/about/index.html" class="article-date">
-  <time datetime="2018-08-22T07:51:21.000Z" itemprop="datePublished">2018-08-22</time>
+    <a href="/2018/09/07/8-React中引入本地图片和背景图片/" class="article-date">
+  <time datetime="2018-09-07T11:04:37.000Z" itemprop="datePublished">2018-09-07</time>
 </a>
     
   </div>
@@ -75,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      React中引入本地图片和背景图片
     </h1>
   
 
@@ -83,17 +86,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="1-非背景图片引入方式"><a href="#1-非背景图片引入方式" class="headerlink" title="1.非背景图片引入方式"></a>1.非背景图片引入方式</h2><h3 id="①-直接在img标签内部src中使用"><a href="#①-直接在img标签内部src中使用" class="headerlink" title="①-直接在img标签内部src中使用"></a>①-直接在img标签内部src中使用</h3><pre><code>&lt;img src={require(&apos;图片路径&apos;)} /&gt;
+</code></pre><h3 id="②-import导入"><a href="#②-import导入" class="headerlink" title="②-import导入"></a>②-import导入</h3><pre><code>import imgSrc from &apos;图片路径&apos;
+&lt;img src={imgSrc} /&gt;
+</code></pre><h2 id="2-图片作为背景引入"><a href="#2-图片作为背景引入" class="headerlink" title="2.图片作为背景引入"></a>2.图片作为背景引入</h2><h3 id="①-render-方法内定义为对象"><a href="#①-render-方法内定义为对象" class="headerlink" title="①-render()方法内定义为对象"></a>①-render()方法内定义为对象</h3><pre><code>const bgGround {
+    display: &apos;inline-block&apos;,
+    height: &apos;40px&apos;,
+    width: &apos;40px&apos;,
+    background: `url(${require(&quot;图片路径&quot;)})`
+}
+
+// 在return中使用
+&lt;span style={bgGround}&gt;xxxxx&lt;/span&gt;
+</code></pre><h3 id="②-import引入"><a href="#②-import引入" class="headerlink" title="②-import引入"></a>②-import引入</h3><pre><code>import imgUrl from &apos;图片路径&apos;
+
+// render()中定义为对象
+const bgGround = {
+    display: &apos;inline-block&apos;,
+    height: &apos;40px&apos;,
+    width: &apos;40px&apos;,
+    backgroundImage: &apos;url(&apos; + imgUrl + &apos;)&apos;
+}
+
+//在return中使用
+&lt;span style={bgGround}&gt;xxxxx&lt;/span&gt;
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/about/index.html" data-id="cjlrwlffe0003bcu1l9lzgg9i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjlrwlffi0006bcu1k53yrp70" class="article-share-link">Share</a>
       
       
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/05/7-react中使用echarts/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">react中使用echarts</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
