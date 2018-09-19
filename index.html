@@ -62,6 +62,176 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-10-hasOwnProperty-和in的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/19/10-hasOwnProperty-和in的区别/" class="article-date">
+  <time datetime="2018-09-19T06:02:25.000Z" itemprop="datePublished">2018-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/19/10-hasOwnProperty-和in的区别/">hasOwnProperty()和in的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-in操作符用来检查对象中是否存在某个属性-不区分实例属性和原型属性"><a href="#1-in操作符用来检查对象中是否存在某个属性-不区分实例属性和原型属性" class="headerlink" title="1.in操作符用来检查对象中是否存在某个属性(不区分实例属性和原型属性)"></a>1.in操作符用来检查对象中是否存在某个属性(不区分实例属性和原型属性)</h2><pre><code>&lt;script&gt;
+
+    //01 提供一个构造函数
+    function Person(name) {
+        this.name = name;
+    }
+
+    //02 设置构造函数的原型对象的属性
+    Person.prototype.sayHello = function () {
+        console.log(&quot;hello&quot;);
+    }
+
+    //03 创建对象
+    var p1 = new Person();
+
+    //04 使用in关键字判断对象中是否存在以下属性:name age sayHello
+    console.log(&quot;age&quot; in p1);       //false
+    console.log(&quot;name&quot; in p1);      //true
+    console.log(&quot;sayHello&quot; in p1);  //true
+
+&lt;/script&gt;
+</code></pre><h2 id="2-对象的hasOwnProperty方法用来检查对象中是否存在指定的属性-只检查实例属性"><a href="#2-对象的hasOwnProperty方法用来检查对象中是否存在指定的属性-只检查实例属性" class="headerlink" title="2.对象的hasOwnProperty方法用来检查对象中是否存在指定的属性(只检查实例属性)"></a>2.对象的hasOwnProperty方法用来检查对象中是否存在指定的属性(只检查实例属性)</h2><pre><code>&lt;script&gt;
+
+    //01 提供一个构造函数
+    function Person(name) {
+        this.name = name;
+    }
+
+    //02 设置构造函数的原型对象的属性
+    Person.prototype.sayHello = function () {
+        console.log(&quot;hello&quot;);
+    }
+
+    Person.prototype.des = &quot;默认的描述信息&quot;;
+
+    //03 创建对象
+    var p1 = new Person();
+
+    //04 使用hasOwnProperty方法判断该属性是否是对象的实例属性
+    console.log(p1.hasOwnProperty(&quot;age&quot;));       //false
+    console.log(p1.hasOwnProperty(&quot;name&quot;));      //true
+    console.log(p1.hasOwnProperty(&quot;sayHello&quot;));  //false
+    console.log(p1.hasOwnProperty(&quot;des&quot;));       //false
+
+&lt;/script&gt;
+</code></pre><h2 id="3-判断某个属性是否存在且只存在于原型属性中"><a href="#3-判断某个属性是否存在且只存在于原型属性中" class="headerlink" title="3.判断某个属性是否存在且只存在于原型属性中"></a>3.判断某个属性是否存在且只存在于原型属性中</h2><pre><code>// 解决思路 :
+// ① 属性存在于对象中
+// ② 属性不是实例属性
+
+&lt;script&gt;
+
+    //01 提供一个构造函数
+    function Person(name) {
+        this.name = name;
+    }
+
+    //02 设置构造函数的原型对象的属性
+    Person.prototype.sayHello = function () {
+        console.log(&quot;hello&quot;);
+    };
+
+    Person.prototype.des = &quot;默认的描述信息&quot;;
+
+    //03 创建对象
+    var p1 = new Person();
+
+
+    function isProperty(obj, property) {
+        return !obj.hasOwnProperty(property) &amp;&amp; (property in obj);
+    }
+
+    console.log(isProperty(p1, &quot;constructor&quot;));    //true
+    console.log(isProperty(p1, &quot;age&quot;));            //false
+    console.log(isProperty(p1, &quot;name&quot;));           //false
+    console.log(isProperty(p1, &quot;des&quot;));            //true
+    console.log(isProperty(p1, &quot;sayHello&quot;));        //true
+    console.log(p1);
+
+&lt;/script&gt;
+
+// 参考链接[https://www.jianshu.com/p/2e30dcb0ef77](https://www.jianshu.com/p/2e30dcb0ef77)
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/19/10-hasOwnProperty-和in的区别/" data-id="cjm8qx0f60006lcu1bx7mlol8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-9-JS判断对象是否为空对象的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/19/9-JS判断对象是否为空对象的方法/" class="article-date">
+  <time datetime="2018-09-19T05:56:11.000Z" itemprop="datePublished">2018-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/19/9-JS判断对象是否为空对象的方法/">JS判断对象是否为空对象的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-for…in遍历属性"><a href="#1-for…in遍历属性" class="headerlink" title="1.for…in遍历属性"></a>1.for…in遍历属性</h2><pre><code>for (let i in obj) {
+    return true;
+}
+return false;
+</code></pre><h2 id="2-JSON-stringfy"><a href="#2-JSON-stringfy" class="headerlink" title="2.JSON.stringfy()"></a>2.JSON.stringfy()</h2><pre><code>if (JSON.stringfy(obj) === &apos;{}&apos;) {
+    return false;
+}
+return true&apos;
+
+// obj.toString()返回的是&quot;[object Object]&quot;
+</code></pre><h2 id="3-ES6新增方法Object-keys"><a href="#3-ES6新增方法Object-keys" class="headerlink" title="3.ES6新增方法Object.keys()"></a>3.ES6新增方法Object.keys()</h2><pre><code>// Object.keys()方法会返回一个由给定对象自身可枚举属性组成的数组，如果对象为空，则返回空数组
+if (Object.keys(obj).length === 0) {
+    return false;
+}
+return true;
+
+// 参考链接[https://www.jianshu.com/p/972d0f277d45](https://www.jianshu.com/p/972d0f277d45)
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/19/9-JS判断对象是否为空对象的方法/" data-id="cjm8qx0f80008lcu1a6en2i3k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-8-React中引入本地图片和背景图片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/07/8-React中引入本地图片和背景图片/" class="article-date">
@@ -112,7 +282,7 @@ const bgGround = {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjlrwlffi0006bcu1k53yrp70" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjm8qx0fs000blcu1qw5pgkcb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -287,7 +457,7 @@ getOptions = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjlrwlffv0008bcu1sgr4xpu5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjm8qx0f70007lcu1fceyfew9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -414,7 +584,7 @@ yarn add less@2.7.3        //less版本大于3.0时会报错，最好是2.7-2.9�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjlrwlffw0009bcu1dcs39sl5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjm8qx0fo0009lcu17eo79r7j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -459,7 +629,7 @@ height: (~&apos;100% - 1.2px&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjlrwlfff0004bcu13djvwjqw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjm8qx0fp000alcu1ojzupghu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -530,7 +700,7 @@ export const getList = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjlrwlffk0007bcu1g1rtqyxj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjm8qx0f40004lcu13ubnli36" class="article-share-link">Share</a>
       
       
     </footer>
@@ -667,7 +837,7 @@ const mapStateToProps = (state) =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjlrwlffh0005bcu1ebedv5i4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjm8qx0f10002lcu1cm091in8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -722,7 +892,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjlrwlff60000bcu1jo6n6edq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjm8qx0ew0000lcu130xfibz7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -767,7 +937,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjlrwlffc0002bcu10k2mwd0f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjm8qx0f50005lcu1ssj3rrab" class="article-share-link">Share</a>
       
       
     </footer>
@@ -808,6 +978,14 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       <ul>
         
           <li>
+            <a href="/2018/09/19/10-hasOwnProperty-和in的区别/">hasOwnProperty()和in的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/19/9-JS判断对象是否为空对象的方法/">JS判断对象是否为空对象的方法</a>
+          </li>
+        
+          <li>
             <a href="/2018/09/07/8-React中引入本地图片和背景图片/">React中引入本地图片和背景图片</a>
           </li>
         
@@ -817,14 +995,6 @@ ERROR Try running: &apos;npm install hexo --save&apos;
         
           <li>
             <a href="/2018/08/28/6-create-react-app项目中使用less和antd基本配置/">create-react-app项目中使用less和antd基本配置</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/">create-react-app脚手架创建的项目开发过程知识点总结</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/">在redux中使用redux-thunk中间件来处理异步请求</a>
           </li>
         
       </ul>
