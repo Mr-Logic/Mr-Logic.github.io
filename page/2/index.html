@@ -5,19 +5,15 @@
   
 
   
-  <title>Hello World | Logic同学的小书屋</title>
+  <title>Logic同学的小书屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/08/22/1-hello-world/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Logic同学的小书屋">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Logic同学的小书屋">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-08-22T06:08:55.427Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Logic同学的小书屋">
   
     <link rel="alternate" href="/atom.xml" title="Logic同学的小书屋" type="application/atom+xml">
   
@@ -64,7 +60,64 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-1-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-2-hexo搭建博客基本步骤" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/22/2-hexo搭建博客基本步骤/" class="article-date">
+  <time datetime="2018-08-22T09:19:39.000Z" itemprop="datePublished">2018-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/22/2-hexo搭建博客基本步骤/">hexo搭建博客托管在github上基本步骤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-新建GitHub仓库，仓库名为：username-github-io"><a href="#1-新建GitHub仓库，仓库名为：username-github-io" class="headerlink" title="1.新建GitHub仓库，仓库名为：username.github.io"></a>1.新建GitHub仓库，仓库名为：username.github.io</h2><h2 id="2-安装Git、Node-js"><a href="#2-安装Git、Node-js" class="headerlink" title="2.安装Git、Node.js"></a>2.安装Git、Node.js</h2><h2 id="3-安装hexo脚手架"><a href="#3-安装hexo脚手架" class="headerlink" title="3.安装hexo脚手架"></a>3.安装hexo脚手架</h2><pre><code>npm install -g hexo-cli -g
+</code></pre><h2 id="4-创建博客"><a href="#4-创建博客" class="headerlink" title="4.创建博客"></a>4.创建博客</h2><pre><code>hexo init username.github.io
+</code></pre><h2 id="5-更改配置"><a href="#5-更改配置" class="headerlink" title="5.更改配置"></a>5.更改配置</h2><h3 id="打开配置文件username-github-io-config-yml"><a href="#打开配置文件username-github-io-config-yml" class="headerlink" title="打开配置文件username.github.io/_config.yml"></a>打开配置文件username.github.io/_config.yml</h3><pre><code>title: dimsky 的 9 维空间 //你博客的名字 
+author: dimsky //你的名字
+language: zh-Hans //语言 中文
+theme: landscape //默认主题
+deploy:
+    type: git //使用Git 发布
+    repo: git@github.com:username/username.github.io.git // 刚创建的Github仓库地址，需要添加ssh key到github账号
+    branch: master
+</code></pre><h2 id="6-新建文章"><a href="#6-新建文章" class="headerlink" title="6.新建文章"></a>6.新建文章</h2><pre><code>hexo new article_name
+</code></pre><h3 id="打开文件夹username-github-io-source-posts，打开刚才的新建的文件，编写即可。"><a href="#打开文件夹username-github-io-source-posts，打开刚才的新建的文件，编写即可。" class="headerlink" title="打开文件夹username.github.io/source/_posts，打开刚才的新建的文件，编写即可。"></a>打开文件夹username.github.io/source/_posts，打开刚才的新建的文件，编写即可。</h3><h2 id="7-本地测试"><a href="#7-本地测试" class="headerlink" title="7.本地测试"></a>7.本地测试</h2><pre><code>hexo server
+</code></pre><h3 id="然后打开localhost-4000端口即可浏览"><a href="#然后打开localhost-4000端口即可浏览" class="headerlink" title="然后打开localhost:4000端口即可浏览"></a>然后打开localhost:4000端口即可浏览</h3><h2 id="8-安装hexo-deployer-git自动化部署"><a href="#8-安装hexo-deployer-git自动化部署" class="headerlink" title="8.安装hexo-deployer-git自动化部署"></a>8.安装hexo-deployer-git自动化部署</h2><pre><code>npm install hexo-deployer-git --save
+</code></pre><h2 id="9-发布到github"><a href="#9-发布到github" class="headerlink" title="9.发布到github"></a>9.发布到github</h2><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
+</code></pre><h3 id="若第8步执行完后执行第9步报如下错误"><a href="#若第8步执行完后执行第9步报如下错误" class="headerlink" title="若第8步执行完后执行第9步报如下错误"></a>若第8步执行完后执行第9步报如下错误</h3><pre><code>ERROR Local hexo not found in 本地磁盘
+ERROR Try running: &apos;npm install hexo --save&apos;
+</code></pre><h3 id="则运行如下命令即可"><a href="#则运行如下命令即可" class="headerlink" title="则运行如下命令即可"></a>则运行如下命令即可</h3><pre><code>npm install
+</code></pre><h3 id="浏览器打开https-username-github-io即可访问博客"><a href="#浏览器打开https-username-github-io即可访问博客" class="headerlink" title="浏览器打开https://username.github.io即可访问博客"></a>浏览器打开<a href="https://username.github.io即可访问博客" target="_blank" rel="noopener">https://username.github.io即可访问博客</a></h3><h2 id="10-每次写完文章后执行命令9即可同步到github"><a href="#10-每次写完文章后执行命令9即可同步到github" class="headerlink" title="10.每次写完文章后执行命令9即可同步到github"></a>10.每次写完文章后执行命令9即可同步到github</h2><h2 id="11-若需要更改主题，将主题clone到themes目录下，再修改配置文件中的theme为clone下的文件名，并theme文档修改配置即可"><a href="#11-若需要更改主题，将主题clone到themes目录下，再修改配置文件中的theme为clone下的文件名，并theme文档修改配置即可" class="headerlink" title="11.若需要更改主题，将主题clone到themes目录下，再修改配置文件中的theme为clone下的文件名，并theme文档修改配置即可"></a>11.若需要更改主题，将主题clone到themes目录下，再修改配置文件中的theme为clone下的文件名，并theme文档修改配置即可</h2><hr>
+<p>参考链接：<br><a href="https://www.jianshu.com/p/4eaddcbe4d12" title="参考链接" target="_blank" rel="noopener">https://www.jianshu.com/p/4eaddcbe4d12</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjqq09cue0003qsu1ofmu4btz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-1-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/22/1-hello-world/" class="article-date">
   <time datetime="2018-08-22T06:08:55.427Z" itemprop="datePublished">2018-08-22</time>
@@ -77,8 +130,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Hello World
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/22/1-hello-world/">Hello World</a>
     </h1>
   
 
@@ -105,23 +158,16 @@
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2018/08/22/2-hexo搭建博客基本步骤/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          hexo搭建博客托管在github上基本步骤
-        
-      </div>
-    </a>
-  
-  
-</nav>
+</article>
+
 
   
-</article>
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
         

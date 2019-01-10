@@ -62,6 +62,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-12-python2和python3同时存在时包管理和不同版本运行的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/10/12-python2和python3同时存在时包管理和不同版本运行的问题/" class="article-date">
+  <time datetime="2019-01-10T02:36:59.156Z" itemprop="datePublished">2019-01-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>1, python2和python3同时存在时，
+Python2安装模块/包：py -2 -m pip install xxx
+Python3安装模块/包：py -3 -m pip install xxx
+
+
+2，2和3版本同时存在时
+运行Python2代码：py -2 xxx.py
+运行Python3代码：py -3 xxx.py
+
+可以再代码最开始假如一行#! python2或#! python3，这样运行时命令可简化为py xxx.py
+
+
+3，Python2中首行要加入# coding: utf-8才可在代码中使用中文
+此时需要
+第一行: #! python2
+第二行: # coding: utf-8
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/10/12-python2和python3同时存在时包管理和不同版本运行的问题/" data-id="cjqq09cu90001qsu1ol93vamf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-11-python解析kml文件输出坐标点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/10/11-python解析kml文件输出坐标点/" class="article-date">
+  <time datetime="2019-01-10T02:32:40.791Z" itemprop="datePublished">2019-01-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code># 使用pykml库解析kml文件
+from pykml import parser
+
+#读取文件
+root = parser.fromstring(open(&apos;源文件&apos;, &apos;r&apos;).read())
+
+# 将读取的坐标点写入新文件中
+with open(&apos;目标文件&apos;, &apos;w+&apos;) as f:
+    # 根据具体kml结构调整下面循环结构
+    for fol in root.Document.Folder.Placemark:    
+        f.write(str(fol.Point.coordinates) + &apos;\n&apos;)
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/10/11-python解析kml文件输出坐标点/" data-id="cjqq09cu40000qsu1v44v2hr4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-10-hasOwnProperty-和in的区别" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/19/10-hasOwnProperty-和in的区别/" class="article-date">
@@ -169,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/19/10-hasOwnProperty-和in的区别/" data-id="cjm8qx0f60006lcu1bx7mlol8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/19/10-hasOwnProperty-和in的区别/" data-id="cjqq09cui0006qsu1fc676p0c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -222,7 +301,7 @@ return true;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/19/9-JS判断对象是否为空对象的方法/" data-id="cjm8qx0f80008lcu1a6en2i3k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/19/9-JS判断对象是否为空对象的方法/" data-id="cjqq09cus0009qsu1bxrv3sse" class="article-share-link">Share</a>
       
       
     </footer>
@@ -282,7 +361,7 @@ const bgGround = {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjm8qx0fs000blcu1qw5pgkcb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjqq09cva000aqsu11ycicy4s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -457,7 +536,7 @@ getOptions = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjm8qx0f70007lcu1fceyfew9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjqq09cuj0007qsu17bkidpyh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -584,7 +663,7 @@ yarn add less@2.7.3        //less版本大于3.0时会报错，最好是2.7-2.9�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjm8qx0fo0009lcu17eo79r7j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjqq09cul0008qsu1wg2dx7lv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -629,7 +708,7 @@ height: (~&apos;100% - 1.2px&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjm8qx0fp000alcu1ojzupghu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjqq09cvd000cqsu1rl105f1c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -700,7 +779,7 @@ export const getList = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjm8qx0f40004lcu13ubnli36" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjqq09cuh0005qsu148413fku" class="article-share-link">Share</a>
       
       
     </footer>
@@ -837,107 +916,7 @@ const mapStateToProps = (state) =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjm8qx0f10002lcu1cm091in8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2-hexo搭建博客基本步骤" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/22/2-hexo搭建博客基本步骤/" class="article-date">
-  <time datetime="2018-08-22T09:19:39.000Z" itemprop="datePublished">2018-08-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/22/2-hexo搭建博客基本步骤/">hexo搭建博客托管在github上基本步骤</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-新建GitHub仓库，仓库名为：username-github-io"><a href="#1-新建GitHub仓库，仓库名为：username-github-io" class="headerlink" title="1.新建GitHub仓库，仓库名为：username.github.io"></a>1.新建GitHub仓库，仓库名为：username.github.io</h2><h2 id="2-安装Git、Node-js"><a href="#2-安装Git、Node-js" class="headerlink" title="2.安装Git、Node.js"></a>2.安装Git、Node.js</h2><h2 id="3-安装hexo脚手架"><a href="#3-安装hexo脚手架" class="headerlink" title="3.安装hexo脚手架"></a>3.安装hexo脚手架</h2><pre><code>npm install -g hexo-cli -g
-</code></pre><h2 id="4-创建博客"><a href="#4-创建博客" class="headerlink" title="4.创建博客"></a>4.创建博客</h2><pre><code>hexo init username.github.io
-</code></pre><h2 id="5-更改配置"><a href="#5-更改配置" class="headerlink" title="5.更改配置"></a>5.更改配置</h2><h3 id="打开配置文件username-github-io-config-yml"><a href="#打开配置文件username-github-io-config-yml" class="headerlink" title="打开配置文件username.github.io/_config.yml"></a>打开配置文件username.github.io/_config.yml</h3><pre><code>title: dimsky 的 9 维空间 //你博客的名字 
-author: dimsky //你的名字
-language: zh-Hans //语言 中文
-theme: landscape //默认主题
-deploy:
-    type: git //使用Git 发布
-    repo: git@github.com:username/username.github.io.git // 刚创建的Github仓库地址，需要添加ssh key到github账号
-    branch: master
-</code></pre><h2 id="6-新建文章"><a href="#6-新建文章" class="headerlink" title="6.新建文章"></a>6.新建文章</h2><pre><code>hexo new article_name
-</code></pre><h3 id="打开文件夹username-github-io-source-posts，打开刚才的新建的文件，编写即可。"><a href="#打开文件夹username-github-io-source-posts，打开刚才的新建的文件，编写即可。" class="headerlink" title="打开文件夹username.github.io/source/_posts，打开刚才的新建的文件，编写即可。"></a>打开文件夹username.github.io/source/_posts，打开刚才的新建的文件，编写即可。</h3><h2 id="7-本地测试"><a href="#7-本地测试" class="headerlink" title="7.本地测试"></a>7.本地测试</h2><pre><code>hexo server
-</code></pre><h3 id="然后打开localhost-4000端口即可浏览"><a href="#然后打开localhost-4000端口即可浏览" class="headerlink" title="然后打开localhost:4000端口即可浏览"></a>然后打开localhost:4000端口即可浏览</h3><h2 id="8-安装hexo-deployer-git自动化部署"><a href="#8-安装hexo-deployer-git自动化部署" class="headerlink" title="8.安装hexo-deployer-git自动化部署"></a>8.安装hexo-deployer-git自动化部署</h2><pre><code>npm install hexo-deployer-git --save
-</code></pre><h2 id="9-发布到github"><a href="#9-发布到github" class="headerlink" title="9.发布到github"></a>9.发布到github</h2><pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
-</code></pre><h3 id="若第8步执行完后执行第9步报如下错误"><a href="#若第8步执行完后执行第9步报如下错误" class="headerlink" title="若第8步执行完后执行第9步报如下错误"></a>若第8步执行完后执行第9步报如下错误</h3><pre><code>ERROR Local hexo not found in 本地磁盘
-ERROR Try running: &apos;npm install hexo --save&apos;
-</code></pre><h3 id="则运行如下命令即可"><a href="#则运行如下命令即可" class="headerlink" title="则运行如下命令即可"></a>则运行如下命令即可</h3><pre><code>npm install
-</code></pre><h3 id="浏览器打开https-username-github-io即可访问博客"><a href="#浏览器打开https-username-github-io即可访问博客" class="headerlink" title="浏览器打开https://username.github.io即可访问博客"></a>浏览器打开<a href="https://username.github.io即可访问博客" target="_blank" rel="noopener">https://username.github.io即可访问博客</a></h3><h2 id="10-每次写完文章后执行命令9即可同步到github"><a href="#10-每次写完文章后执行命令9即可同步到github" class="headerlink" title="10.每次写完文章后执行命令9即可同步到github"></a>10.每次写完文章后执行命令9即可同步到github</h2><h2 id="11-若需要更改主题，将主题clone到themes目录下，再修改配置文件中的theme为clone下的文件名，并theme文档修改配置即可"><a href="#11-若需要更改主题，将主题clone到themes目录下，再修改配置文件中的theme为clone下的文件名，并theme文档修改配置即可" class="headerlink" title="11.若需要更改主题，将主题clone到themes目录下，再修改配置文件中的theme为clone下的文件名，并theme文档修改配置即可"></a>11.若需要更改主题，将主题clone到themes目录下，再修改配置文件中的theme为clone下的文件名，并theme文档修改配置即可</h2><hr>
-<p>参考链接：<br><a href="https://www.jianshu.com/p/4eaddcbe4d12" title="参考链接" target="_blank" rel="noopener">https://www.jianshu.com/p/4eaddcbe4d12</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjm8qx0ew0000lcu130xfibz7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-1-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/22/1-hello-world/" class="article-date">
-  <time datetime="2018-08-22T06:08:55.427Z" itemprop="datePublished">2018-08-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/22/1-hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjm8qx0f50005lcu1ssj3rrab" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjqq09cuf0004qsu1v24pft06" class="article-share-link">Share</a>
       
       
     </footer>
@@ -948,6 +927,11 @@ ERROR Try running: &apos;npm install hexo --save&apos;
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -965,7 +949,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li></ul>
     </div>
   </div>
 
@@ -978,6 +962,14 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       <ul>
         
           <li>
+            <a href="/2019/01/10/12-python2和python3同时存在时包管理和不同版本运行的问题/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/10/11-python解析kml文件输出坐标点/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/09/19/10-hasOwnProperty-和in的区别/">hasOwnProperty()和in的区别</a>
           </li>
         
@@ -987,14 +979,6 @@ ERROR Try running: &apos;npm install hexo --save&apos;
         
           <li>
             <a href="/2018/09/07/8-React中引入本地图片和背景图片/">React中引入本地图片和背景图片</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/05/7-react中使用echarts/">react中使用echarts</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/28/6-create-react-app项目中使用less和antd基本配置/">create-react-app项目中使用less和antd基本配置</a>
           </li>
         
       </ul>
@@ -1009,7 +993,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 Mr Logic<br>
+      &copy; 2019 Mr Logic<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
