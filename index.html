@@ -62,6 +62,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-13-配置react项目根路径以简化组件import方式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/28/13-配置react项目根路径以简化组件import方式/" class="article-date">
+  <time datetime="2019-01-28T07:23:38.000Z" itemprop="datePublished">2019-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/28/13-配置react项目根路径以简化组件import方式/">配置react项目根路径以简化组件import方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>在webpack.config.js文件中设置alias</li>
+</ol>
+<pre><code>alias: {
+
+    &apos;components&apos;: path.resolve(__dirname, &apos;../src/components&apos;),
+
+    &apos;pages&apos;: path.resolve(__dirname, &apos;../src/pages&apos;),
+  }
+</code></pre><ol start="2">
+<li><p>即可在页面中根据绝对路径导入组件</p>
+<p> import pageName from ‘pages/pageName’</p>
+<p> import ComponentName from ‘components/component_name’</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/28/13-配置react项目根路径以简化组件import方式/" data-id="cjrg0l79i000288u1wuqmlqy6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-12-python2和python3同时存在时包的安装和运行问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/10/12-python2和python3同时存在时包的安装和运行问题/" class="article-date">
@@ -104,7 +155,7 @@ Python3安装模块/包：py -3 -m pip install xxx
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/12-python2和python3同时存在时包的安装和运行问题/" data-id="cjqq0oscm000684u18dy84owe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/12-python2和python3同时存在时包的安装和运行问题/" data-id="cjrg0l7ap000e88u1tnip2a8h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -151,7 +202,7 @@ with open(&apos;目标文件&apos;, &apos;w+&apos;) as f:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/11-python解析kml文件输出坐标/" data-id="cjqq0osci000484u1u0r3pfio" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/11-python解析kml文件输出坐标/" data-id="cjrg0l79f000188u160hrkrts" class="article-share-link">Share</a>
       
       
     </footer>
@@ -268,7 +319,7 @@ with open(&apos;目标文件&apos;, &apos;w+&apos;) as f:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/19/10-hasOwnProperty-和in的区别/" data-id="cjqq0osc9000084u1lqpilc02" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/19/10-hasOwnProperty-和in的区别/" data-id="cjrg0l79j000388u1z1k0co3f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -321,7 +372,7 @@ return true;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/19/9-JS判断对象是否为空对象的方法/" data-id="cjqq0oscv000d84u1duij69c1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/19/9-JS判断对象是否为空对象的方法/" data-id="cjrg0l7ai000b88u10e4xc9z6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -381,7 +432,7 @@ const bgGround = {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjqq0oscu000c84u1sebc7ov3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjrg0l79v000988u1z9hp8ixn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -556,7 +607,7 @@ getOptions = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjqq0oscr000a84u1m13qjsps" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjrg0l79u000888u1fu2jadaf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -683,7 +734,7 @@ yarn add less@2.7.3        //less版本大于3.0时会报错，最好是2.7-2.9�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjqq0oscq000984u17dwrwwjb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjrg0l79t000788u1q6nc1zz2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -728,7 +779,7 @@ height: (~&apos;100% - 1.2px&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjqq0osct000b84u1ue74vqcf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjrg0l79w000a88u1n4qwfyfz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -799,144 +850,7 @@ export const getList = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjqq0oscp000884u1qd24yab6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-3-react项目中使用redux基本步骤" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/22/3-react项目中使用redux基本步骤/" class="article-date">
-  <time datetime="2018-08-22T09:20:04.000Z" itemprop="datePublished">2018-08-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/22/3-react项目中使用redux基本步骤/">react项目中使用react-redux基本步骤</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-引入redux"><a href="#1-引入redux" class="headerlink" title="1.引入redux"></a>1.引入redux</h2><pre><code>yarn add redux
-</code></pre><h2 id="2-引入react-redux"><a href="#2-引入react-redux" class="headerlink" title="2.引入react-redux"></a>2.引入react-redux</h2><pre><code>yarn add react-redux
-</code></pre><h2 id="3-创建store文件夹，store中创建index-js、reducer-js，完成store基本结构"><a href="#3-创建store文件夹，store中创建index-js、reducer-js，完成store基本结构" class="headerlink" title="3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构"></a>3.创建store文件夹，store中创建index.js、reducer.js，完成store基本结构</h2><h4 id="index-js文件中"><a href="#index-js文件中" class="headerlink" title="index.js文件中"></a>index.js文件中</h4><pre><code>import { createStore } from &apos;redux&apos;;
-import reducer from &apos;./reducer&apos;;
-
-const store = createStore(reducer);
-
-export default store;
-</code></pre><h4 id="reducer-js文件中"><a href="#reducer-js文件中" class="headerlink" title="reducer.js文件中"></a>reducer.js文件中</h4><pre><code>const defaultState = {
-    // 此处存储的是初始化的store数据，即原来存在组件state中的数据
-    focused: false    //假设现在有一个focused的数据
-};
-
-export default (state=defaultState, action) =&gt; {
-    if (action.type === &apos;search_focus&apos;) {
-        return {
-            focused: true
-        }
-    }
-    if (action.type === &apos;search_blur&apos;) {
-        return {
-            focused: false
-        }
-    }
-    return state;
-}
-</code></pre><h2 id="4-根组件App-js中引入store和Provider并包裹子组件，则任意子组件都可使用store"><a href="#4-根组件App-js中引入store和Provider并包裹子组件，则任意子组件都可使用store" class="headerlink" title="4.根组件App.js中引入store和Provider并包裹子组件，则任意子组件都可使用store"></a>4.根组件App.js中引入store和Provider并包裹子组件，则任意子组件都可使用store</h2><pre><code>import { Provider } from &apos;react-redux&apos;;
-import store from &apos;./store&apos;
-class App extends Component {
-      render() {
-        return (
-          &lt;Provider store={store}&gt;
-            &lt;内部组件 /&gt;
-          &lt;/Provider&gt;
-        );
-      }
-}
-</code></pre><h2 id="5-在子组件中使用connect连接组件和store"><a href="#5-在子组件中使用connect连接组件和store" class="headerlink" title="5.在子组件中使用connect连接组件和store"></a>5.在子组件中使用connect连接组件和store</h2><pre><code>import { connect } from &apos;react-redux&apos;;
-
-// 原来组件中使用this.state.focused的地方则可替换为this.props.focused
-// 原来组件中调用的方法this.handleInputFocus的地方则可替换为this.props.handleInputFocus
-
-const mapStateTopProps = (state) =&gt; {
-    return {
-        focused: state.focused    // 将store中的focused映射到组件的props中去
-    }
-}
-const mapDispatchToProps = (dispatch) =&gt; {
-    return {
-         handleInputFocus () {
-            // 创建action
-            const action = {
-                type: &apos;search_focus&apos;
-            };
-            // 将action派发给store
-            dispatch(action);
-        },
-        handleInputBlur () {
-            const action = {
-                type: &apos;search_blur&apos;
-            };
-            dispatch(action);
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(子组件);
-</code></pre><h2 id="6-当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。"><a href="#6-当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。" class="headerlink" title="6.当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。"></a>6.当需要管理的数据较多时，可将store中的reducer拆分到各个组件中，再用combineReducers连接起来。</h2><h4 id="每个组件的store文件夹中都可以有入口store文件index-js、处理文件reducer-js、常量文件constants-js、action创建文件actionCreators-js，将其他三个文件导入到index-js文件中再导出，外部需要使用时直接访问index-js文件即可。"><a href="#每个组件的store文件夹中都可以有入口store文件index-js、处理文件reducer-js、常量文件constants-js、action创建文件actionCreators-js，将其他三个文件导入到index-js文件中再导出，外部需要使用时直接访问index-js文件即可。" class="headerlink" title="每个组件的store文件夹中都可以有入口store文件index.js、处理文件reducer.js、常量文件constants.js、action创建文件actionCreators.js，将其他三个文件导入到index.js文件中再导出，外部需要使用时直接访问index.js文件即可。"></a>每个组件的store文件夹中都可以有入口store文件index.js、处理文件reducer.js、常量文件constants.js、action创建文件actionCreators.js，将其他三个文件导入到index.js文件中再导出，外部需要使用时直接访问index.js文件即可。</h4><pre><code>import { combineReducers } from &apos;redux&apos;;
-import headerReducer from &apos;../common/header/store/reducer&apos;;
-
-export default combineReducers({
-    header: headerReducer
-})
-</code></pre><h4 id="需要注意的是组件中的数据多了一层结构"><a href="#需要注意的是组件中的数据多了一层结构" class="headerlink" title="需要注意的是组件中的数据多了一层结构"></a>需要注意的是组件中的数据多了一层结构</h4><pre><code>const mapStateTopProps = (state) =&gt; {
-    return {
-        focused: state.header.focused    // 将store中的focused映射到组件的props中去
-    }
-}
-</code></pre><h2 id="7-由于reducer中不可直接更改state-可使用immutable插件来讲state包装为immutable对象"><a href="#7-由于reducer中不可直接更改state-可使用immutable插件来讲state包装为immutable对象" class="headerlink" title="7.由于reducer中不可直接更改state,可使用immutable插件来讲state包装为immutable对象"></a>7.由于reducer中不可直接更改state,可使用immutable插件来讲state包装为immutable对象</h2><pre><code>yarn add immutable
-yarn add redux-immutable
-</code></pre><h4 id="在组件的reducer-js中"><a href="#在组件的reducer-js中" class="headerlink" title="在组件的reducer.js中"></a>在组件的reducer.js中</h4><pre><code>import { fromJS } from &apos;immutable&apos;;
-// 原来的defaultState改为
-const defaultState = fromJS({
-    focused: false
-});
-
-export default (state=defaultState, action) =&gt; {
-    if (action.type === constants.SEARCH_FOCUS) {
-        // immutable对象的set方法，会结合之前的immutable对象的值和设置的值，返回一个全新的对象
-        return state.set(&apos;focused&apos;, true)    // 此时更改state需要使用immutable对象的set方法
-    }
-    if (action.type === constants.SEARCH_BLUR) {
-        return state.set(&apos;focused&apos;, false)
-    }
-    return state;
-}
-</code></pre><h4 id="在组件中获取state也需要immutable方法"><a href="#在组件中获取state也需要immutable方法" class="headerlink" title="在组件中获取state也需要immutable方法"></a>在组件中获取state也需要immutable方法</h4><pre><code>// 由于state是redux-immutable中的combineReducers函数创建的对象，故为immutable对象，需要使用get方法
-const mapStateToProps = (state) =&gt; {
-    return {
-        focused: state.getIn([&apos;header&apos;, &apos;focused&apos;])    // 等价于state.get(&apos;header&apos;).get(&apos;focused)
-    }
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjqq0osck000584u144wxhl2s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjrg0l79q000488u1aoaq2l8q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -982,6 +896,10 @@ const mapStateToProps = (state) =&gt; {
       <ul>
         
           <li>
+            <a href="/2019/01/28/13-配置react项目根路径以简化组件import方式/">配置react项目根路径以简化组件import方式</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/10/12-python2和python3同时存在时包的安装和运行问题/">python2和python3同时存在时包的安装和运行问题</a>
           </li>
         
@@ -995,10 +913,6 @@ const mapStateToProps = (state) =&gt; {
         
           <li>
             <a href="/2018/09/19/9-JS判断对象是否为空对象的方法/">JS判断对象是否为空对象的方法</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/07/8-React中引入本地图片和背景图片/">React中引入本地图片和背景图片</a>
           </li>
         
       </ul>
