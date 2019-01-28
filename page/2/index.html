@@ -62,6 +62,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-4-在redux中使用redux-thunk中间件来处理异步请求" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" class="article-date">
+  <time datetime="2018-08-23T03:21:14.000Z" itemprop="datePublished">2018-08-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/">在redux中使用redux-thunk中间件来处理异步请求</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用"><a href="#使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用" class="headerlink" title="使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用"></a>使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用</h2><pre><code>yarn add redux-thunk
+
+import { createStore, compose, applyMiddleware } from &apos;redux&apos;;
+import reducer from &apos;./reducer&apos;;
+import thunk from &apos;redux-thunk&apos;;
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, /* preloadedState, */ composeEnhancers(
+    applyMiddleware(thunk)
+));
+
+export default store; 
+</code></pre><h2 id="然后即可在组件的action中派发请求"><a href="#然后即可在组件的action中派发请求" class="headerlink" title="然后即可在组件的action中派发请求"></a>然后即可在组件的action中派发请求</h2><pre><code>const mapDispatchToProps = (dispatch) =&gt; {
+    return {
+        handleInputFocus () {
+            dispatch(actionCreators.getList());
+        }
+    }
+}
+</code></pre><h2 id="在组件的actionCreators文件中发送异步请求"><a href="#在组件的actionCreators文件中发送异步请求" class="headerlink" title="在组件的actionCreators文件中发送异步请求"></a>在组件的actionCreators文件中发送异步请求</h2><pre><code>export const changeList = (data) =&gt; ({
+    type: &apos;change_list&apos;,
+    data
+})
+
+export const getList = () =&gt; {
+    // 使用redux-thunk后此处即可返回一个函数
+    return (dispatch) =&gt; {
+        axios.get(&apos;/api/headerList.json&apos;).then((res) =&gt; {
+            const data = res.data;
+            dispatch(changeList(data.data))
+        }).catch((err) =&gt; {
+            console.log(err)
+        })
+    }
+}    
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjrg1tx7j00083ku10rufsb18" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-3-react项目中使用redux基本步骤" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/22/3-react项目中使用redux基本步骤/" class="article-date">
@@ -189,7 +260,7 @@ const mapStateToProps = (state) =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjrg0n41v00063cu19u0p94hc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/3-react项目中使用redux基本步骤/" data-id="cjrg1tx7g00063ku1jltp0qg8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -244,7 +315,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjrg0n41u00053cu1fi1rk00s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/2-hexo搭建博客基本步骤/" data-id="cjrg1tx7h00073ku1mweb7e85" class="article-share-link">Share</a>
       
       
     </footer>
@@ -289,7 +360,7 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjrg0n41i00003cu1gj8387tq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/22/1-hello-world/" data-id="cjrg1tx7200003ku1jz0kq9a7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -335,6 +406,10 @@ ERROR Try running: &apos;npm install hexo --save&apos;
       <ul>
         
           <li>
+            <a href="/2019/01/28/14-react-16-7-0版本配置sass-less/">react 16.7.0版本配置sass/less</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/28/13-配置react项目根路径以简化组件import方式/">配置react项目根路径以简化组件import方式</a>
           </li>
         
@@ -348,10 +423,6 @@ ERROR Try running: &apos;npm install hexo --save&apos;
         
           <li>
             <a href="/2018/09/19/10-hasOwnProperty-和in的区别/">hasOwnProperty()和in的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/19/9-JS判断对象是否为空对象的方法/">JS判断对象是否为空对象的方法</a>
           </li>
         
       </ul>

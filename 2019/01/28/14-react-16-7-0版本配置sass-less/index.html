@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2019/1 | Logic同学的小书屋</title>
+  <title>react 16.7.0版本配置sass/less | Logic同学的小书屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Logic同学的小书屋">
-<meta property="og:url" content="http://yoursite.com/archives/2019/01/index.html">
+  <meta name="description" content="一. 配置sass很简单，create-react-app脚手架已配置好sass，只需要执行命令npm install node-sass --save即可 二. 配置less需要执行以下2个步骤  在webpack.config.js文件中找到以下代码 {   test: sassModuleRegex,   use: getStyleLoaders( {   importLoaders: 2,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react 16.7.0版本配置sass&#x2F;less">
+<meta property="og:url" content="http://yoursite.com/2019/01/28/14-react-16-7-0版本配置sass-less/index.html">
 <meta property="og:site_name" content="Logic同学的小书屋">
+<meta property="og:description" content="一. 配置sass很简单，create-react-app脚手架已配置好sass，只需要执行命令npm install node-sass --save即可 二. 配置less需要执行以下2个步骤  在webpack.config.js文件中找到以下代码 {   test: sassModuleRegex,   use: getStyleLoaders( {   importLoaders: 2,">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-01-28T08:05:41.386Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Logic同学的小书屋">
+<meta name="twitter:title" content="react 16.7.0版本配置sass&#x2F;less">
+<meta name="twitter:description" content="一. 配置sass很简单，create-react-app脚手架已配置好sass，只需要执行命令npm install node-sass --save即可 二. 配置less需要执行以下2个步骤  在webpack.config.js文件中找到以下代码 {   test: sassModuleRegex,   use: getStyleLoaders( {   importLoaders: 2,">
   
     <link rel="alternate" href="/atom.xml" title="Logic同学的小书屋" type="application/atom+xml">
   
@@ -60,97 +64,78 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/28/14-react-16-7-0版本配置sass-less/" class="archive-article-date">
-  <time datetime="2019-01-28T08:00:04.000Z" itemprop="datePublished">1月 28</time>
+        <section id="main"><article id="post-14-react-16-7-0版本配置sass-less" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/28/14-react-16-7-0版本配置sass-less/" class="article-date">
+  <time datetime="2019-01-28T08:00:04.000Z" itemprop="datePublished">2019-01-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/28/14-react-16-7-0版本配置sass-less/">react 16.7.0版本配置sass/less</a>
+    <h1 class="article-title" itemprop="name">
+      react 16.7.0版本配置sass/less
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/28/13-配置react项目根路径以简化组件import方式/" class="archive-article-date">
-  <time datetime="2019-01-28T07:23:38.000Z" itemprop="datePublished">1月 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/28/13-配置react项目根路径以简化组件import方式/">配置react项目根路径以简化组件import方式</a>
-    </h1>
-  
+        <p>一. 配置sass很简单，create-react-app脚手架已配置好sass，只需要执行命令<code>npm install node-sass --save</code>即可</p>
+<p>二. 配置less需要执行以下2个步骤</p>
+<ol>
+<li><p>在webpack.config.js文件中找到以下代码<br> {<br>   test: sassModuleRegex,<br>   use: getStyleLoaders(</p>
+<pre><code>{
+  importLoaders: 2,
+  sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,
+  modules: true,
+  getLocalIdent: getCSSModuleLocalIdent,
+},
+&apos;sass-loader&apos;
+</code></pre><p>   ),<br> },</p>
+</li>
+<li><p>在上面的代码下添加以下代码<br>  {<br>   test: /.less$/,<br>   use: [</p>
+<pre><code>require.resolve(&apos;style-loader&apos;),
+{
+  loader: require.resolve(&apos;css-loader&apos;),
+  options: {
+    importLoaders: 1,
+  },
+},
+{
+  loader: require.resolve(&apos;less-loader&apos;) // compiles Less to CSS
+}
+</code></pre><p>   ],<br> },</p>
+</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/12-python2和python3同时存在时包的安装和运行问题/" class="archive-article-date">
-  <time datetime="2019-01-10T02:51:45.000Z" itemprop="datePublished">1月 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/10/12-python2和python3同时存在时包的安装和运行问题/">python2和python3同时存在时包的安装和运行问题</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/10/11-python解析kml文件输出坐标/" class="archive-article-date">
-  <time datetime="2019-01-10T02:50:36.000Z" itemprop="datePublished">1月 10</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/28/14-react-16-7-0版本配置sass-less/" data-id="cjrg1tx7f00053ku178k40r5k" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/10/11-python解析kml文件输出坐标/">python解析kml文件输出坐标</a>
-    </h1>
-  
-
-    </header>
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/01/28/13-配置react项目根路径以简化组件import方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">配置react项目根路径以简化组件import方式</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

@@ -62,6 +62,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-14-react-16-7-0版本配置sass-less" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/28/14-react-16-7-0版本配置sass-less/" class="article-date">
+  <time datetime="2019-01-28T08:00:04.000Z" itemprop="datePublished">2019-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/28/14-react-16-7-0版本配置sass-less/">react 16.7.0版本配置sass/less</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一. 配置sass很简单，create-react-app脚手架已配置好sass，只需要执行命令<code>npm install node-sass --save</code>即可</p>
+<p>二. 配置less需要执行以下2个步骤</p>
+<ol>
+<li><p>在webpack.config.js文件中找到以下代码<br> {<br>   test: sassModuleRegex,<br>   use: getStyleLoaders(</p>
+<pre><code>{
+  importLoaders: 2,
+  sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,
+  modules: true,
+  getLocalIdent: getCSSModuleLocalIdent,
+},
+&apos;sass-loader&apos;
+</code></pre><p>   ),<br> },</p>
+</li>
+<li><p>在上面的代码下添加以下代码<br>  {<br>   test: /.less$/,<br>   use: [</p>
+<pre><code>require.resolve(&apos;style-loader&apos;),
+{
+  loader: require.resolve(&apos;css-loader&apos;),
+  options: {
+    importLoaders: 1,
+  },
+},
+{
+  loader: require.resolve(&apos;less-loader&apos;) // compiles Less to CSS
+}
+</code></pre><p>   ],<br> },</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/28/14-react-16-7-0版本配置sass-less/" data-id="cjrg1tx7f00053ku178k40r5k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-13-配置react项目根路径以简化组件import方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/28/13-配置react项目根路径以简化组件import方式/" class="article-date">
@@ -100,7 +163,7 @@ import ComponentName from &apos;components/component_name&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/28/13-配置react项目根路径以简化组件import方式/" data-id="cjrg0n41t00043cu15364wkia" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/28/13-配置react项目根路径以简化组件import方式/" data-id="cjrg1tx7c00043ku1xzrnkhb5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +215,7 @@ Python3安装模块/包：py -3 -m pip install xxx
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/12-python2和python3同时存在时包的安装和运行问题/" data-id="cjrg0n41q00023cu1d7wlqiln" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/12-python2和python3同时存在时包的安装和运行问题/" data-id="cjrg1tx7700013ku18uisq54x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,7 +262,7 @@ with open(&apos;目标文件&apos;, &apos;w+&apos;) as f:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/10/11-python解析kml文件输出坐标/" data-id="cjrg0n41s00033cu1kftxiywe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/10/11-python解析kml文件输出坐标/" data-id="cjrg1tx7b00033ku1sgtp1et8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -316,7 +379,7 @@ with open(&apos;目标文件&apos;, &apos;w+&apos;) as f:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/19/10-hasOwnProperty-和in的区别/" data-id="cjrg0n41o00013cu1r4o6nk0r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/19/10-hasOwnProperty-和in的区别/" data-id="cjrg1tx7900023ku1nnu46t2k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -369,7 +432,7 @@ return true;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/19/9-JS判断对象是否为空对象的方法/" data-id="cjrg0n42b000c3cu1efbwc78q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/19/9-JS判断对象是否为空对象的方法/" data-id="cjrg1tx7x000d3ku1kqughxgb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -429,7 +492,7 @@ const bgGround = {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjrg0n422000b3cu1frxjh707" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/07/8-React中引入本地图片和背景图片/" data-id="cjrg1tx7p000c3ku1zodvct42" class="article-share-link">Share</a>
       
       
     </footer>
@@ -604,7 +667,7 @@ getOptions = () =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjrg0n421000a3cu13271gfgx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/09/05/7-react中使用echarts/" data-id="cjrg1tx7l000a3ku1buc36v9p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -731,7 +794,7 @@ yarn add less@2.7.3        //less版本大于3.0时会报错，最好是2.7-2.9�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjrg0n41z00093cu1o2ckm51s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/28/6-create-react-app项目中使用less和antd基本配置/" data-id="cjrg1tx7o000b3ku160yrrtdh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -776,78 +839,7 @@ height: (~&apos;100% - 1.2px&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjrg0n41x00083cu1g59mwmfw" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-4-在redux中使用redux-thunk中间件来处理异步请求" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" class="article-date">
-  <time datetime="2018-08-23T03:21:14.000Z" itemprop="datePublished">2018-08-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/">在redux中使用redux-thunk中间件来处理异步请求</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用"><a href="#使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用" class="headerlink" title="使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用"></a>使用redux-thunk中间件来管理action和store之间的dispatch，在创建store的时候使用</h2><pre><code>yarn add redux-thunk
-
-import { createStore, compose, applyMiddleware } from &apos;redux&apos;;
-import reducer from &apos;./reducer&apos;;
-import thunk from &apos;redux-thunk&apos;;
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, /* preloadedState, */ composeEnhancers(
-    applyMiddleware(thunk)
-));
-
-export default store; 
-</code></pre><h2 id="然后即可在组件的action中派发请求"><a href="#然后即可在组件的action中派发请求" class="headerlink" title="然后即可在组件的action中派发请求"></a>然后即可在组件的action中派发请求</h2><pre><code>const mapDispatchToProps = (dispatch) =&gt; {
-    return {
-        handleInputFocus () {
-            dispatch(actionCreators.getList());
-        }
-    }
-}
-</code></pre><h2 id="在组件的actionCreators文件中发送异步请求"><a href="#在组件的actionCreators文件中发送异步请求" class="headerlink" title="在组件的actionCreators文件中发送异步请求"></a>在组件的actionCreators文件中发送异步请求</h2><pre><code>export const changeList = (data) =&gt; ({
-    type: &apos;change_list&apos;,
-    data
-})
-
-export const getList = () =&gt; {
-    // 使用redux-thunk后此处即可返回一个函数
-    return (dispatch) =&gt; {
-        axios.get(&apos;/api/headerList.json&apos;).then((res) =&gt; {
-            const data = res.data;
-            dispatch(changeList(data.data))
-        }).catch((err) =&gt; {
-            console.log(err)
-        })
-    }
-}    
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/23/4-在redux中使用redux-thunk中间件来处理异步请求/" data-id="cjrg0n41w00073cu1gv5bpcli" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/23/5-create-react-app脚手架创建的项目开发过程知识点总结/" data-id="cjrg1tx7k00093ku1q2ukkvup" class="article-share-link">Share</a>
       
       
     </footer>
@@ -893,6 +885,10 @@ export const getList = () =&gt; {
       <ul>
         
           <li>
+            <a href="/2019/01/28/14-react-16-7-0版本配置sass-less/">react 16.7.0版本配置sass/less</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/28/13-配置react项目根路径以简化组件import方式/">配置react项目根路径以简化组件import方式</a>
           </li>
         
@@ -906,10 +902,6 @@ export const getList = () =&gt; {
         
           <li>
             <a href="/2018/09/19/10-hasOwnProperty-和in的区别/">hasOwnProperty()和in的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2018/09/19/9-JS判断对象是否为空对象的方法/">JS判断对象是否为空对象的方法</a>
           </li>
         
       </ul>
