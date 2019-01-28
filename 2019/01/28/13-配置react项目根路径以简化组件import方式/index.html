@@ -7,17 +7,17 @@
   
   <title>配置react项目根路径以简化组件import方式 | Logic同学的小书屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在webpack.config.js文件中设置alias  alias: {      &amp;apos;components&amp;apos;: path.resolve(__dirname, &amp;apos;../src/components&amp;apos;),      &amp;apos;pages&amp;apos;: path.resolve(__dirname, &amp;apos;../src/pages&amp;apos;),">
+  <meta name="description" content="在webpack.config.js文件中设置alias  alias: {     &amp;apos;components&amp;apos;: path.resolve(__dirname, &amp;apos;../src/components&amp;apos;),     &amp;apos;pages&amp;apos;: path.resolve(__dirname, &amp;apos;../src/pages&amp;apos;),">
 <meta property="og:type" content="article">
 <meta property="og:title" content="配置react项目根路径以简化组件import方式">
 <meta property="og:url" content="http://yoursite.com/2019/01/28/13-配置react项目根路径以简化组件import方式/index.html">
 <meta property="og:site_name" content="Logic同学的小书屋">
-<meta property="og:description" content="在webpack.config.js文件中设置alias  alias: {      &amp;apos;components&amp;apos;: path.resolve(__dirname, &amp;apos;../src/components&amp;apos;),      &amp;apos;pages&amp;apos;: path.resolve(__dirname, &amp;apos;../src/pages&amp;apos;),">
+<meta property="og:description" content="在webpack.config.js文件中设置alias  alias: {     &amp;apos;components&amp;apos;: path.resolve(__dirname, &amp;apos;../src/components&amp;apos;),     &amp;apos;pages&amp;apos;: path.resolve(__dirname, &amp;apos;../src/pages&amp;apos;),">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-01-28T07:30:47.973Z">
+<meta property="og:updated_time" content="2019-01-28T07:32:35.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置react项目根路径以简化组件import方式">
-<meta name="twitter:description" content="在webpack.config.js文件中设置alias  alias: {      &amp;apos;components&amp;apos;: path.resolve(__dirname, &amp;apos;../src/components&amp;apos;),      &amp;apos;pages&amp;apos;: path.resolve(__dirname, &amp;apos;../src/pages&amp;apos;),">
+<meta name="twitter:description" content="在webpack.config.js文件中设置alias  alias: {     &amp;apos;components&amp;apos;: path.resolve(__dirname, &amp;apos;../src/components&amp;apos;),     &amp;apos;pages&amp;apos;: path.resolve(__dirname, &amp;apos;../src/pages&amp;apos;),">
   
     <link rel="alternate" href="/atom.xml" title="Logic同学的小书屋" type="application/atom+xml">
   
@@ -90,22 +90,19 @@
 <li>在webpack.config.js文件中设置alias</li>
 </ol>
 <pre><code>alias: {
-
     &apos;components&apos;: path.resolve(__dirname, &apos;../src/components&apos;),
-
     &apos;pages&apos;: path.resolve(__dirname, &apos;../src/pages&apos;),
   }
 </code></pre><ol start="2">
-<li><p>即可在页面中根据绝对路径导入组件</p>
-<p> import pageName from ‘pages/pageName’</p>
-<p> import ComponentName from ‘components/component_name’</p>
-</li>
+<li>即可在页面中根据绝对路径导入组件</li>
 </ol>
-
+<pre><code>import pageName from &apos;pages/pageName&apos;
+import ComponentName from &apos;components/component_name&apos;
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/28/13-配置react项目根路径以简化组件import方式/" data-id="cjrg0l79i000288u1wuqmlqy6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/28/13-配置react项目根路径以简化组件import方式/" data-id="cjrg0n41t00043cu15364wkia" class="article-share-link">Share</a>
       
       
     </footer>
